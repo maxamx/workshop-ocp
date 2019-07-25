@@ -7,6 +7,7 @@ $conn = new mysqli("mysql", "redhat", "redhat@123", "workshop");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+do {
 $result = $conn->query("SELECT nome FROM cidade");
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
@@ -15,5 +16,6 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
+} while (true);
 $conn->close();
 ?>
